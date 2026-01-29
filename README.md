@@ -1,143 +1,60 @@
-# 📊 LegacyCRM — Caso de Estudio UX / DCU
-
-## Descripción general
-
-**LegacyCRM** es una **aplicación web tipo CRM diseñada intencionalmente con mala experiencia de usuario**.  
-Su objetivo **NO es ser un buen producto**, sino servir como **caso de estudio académico** para analizar:
-
-- Abandono de usuarios  
-- Fricción en interfaces  
-- Falta de Diseño Centrado en el Usuario (DCU)  
-- Consecuencias de ignorar principios de usabilidad  
-
-Esta aplicación se utiliza en una **dinámica de juego de rol** donde los estudiantes asumen distintos papeles (cliente y desarrollador) para **detectar problemas, proponer mejoras y luego implementarlas**.
+Entendido. Vamos a generar un **README.md** profesional y limpio, centrándonos en el estado actual de la plataforma (Core, Dashboard y Registro de Clientes), dejando fuera las funcionalidades experimentales de ventas y ajustes para que coincida exactamente con lo que tienes estable.
 
 ---
 
-## 🎯 Objetivo pedagógico
+# LegacyCRM — Panel de Gestión Accesible v1.2
 
-Al trabajar con esta aplicación, el estudiante será capaz de:
+LegacyCRM es una solución ligera de gestión de relaciones con clientes (CRM) diseñada bajo principios de **Diseño Centrado en el Usuario (DCU)** y accesibilidad. Esta versión se enfoca en la robustez del registro de datos y la claridad visual.
 
-- Identificar problemas de usabilidad reales  
-- Analizar causas de abandono de usuarios  
-- Aplicar el proceso de Diseño Centrado en el Usuario  
-- Proponer mejoras justificadas  
-- Implementar cambios concretos en HTML, CSS y JavaScript  
+## 🚀 Funcionalidades Principales
 
----
+* **Dashboard de Actividad**: Resumen en tiempo real de los eventos del sistema y estado de sincronización.
+* **Gestión de Clientes**: Formulario de registro avanzado con validaciones estrictas y soporte para formatos internacionales.
+* **Interfaz Adaptativa**: Diseño optimizado para escritorio con navegación lateral intuitiva.
+* **Sistema de Notificaciones (Toasts)**: Feedback inmediato al usuario tras cada acción (éxito, error o aviso).
 
-## 🧠 Enfoque del caso de estudio
+## 🛠️ Tecnologías Utilizadas
 
-⚠️ **Advertencia**  
-Esta interfaz está diseñada para ser **frustrante a propósito**.  
-Muchos comportamientos que verás aquí **NO deben replicarse en proyectos reales**.
+* **HTML5**: Estructura semántica para máxima accesibilidad.
+* **CSS3**: Variables nativas (:root) para fácil tematización y diseño responsivo.
+* **JavaScript (Vanilla)**: Lógica pura sin dependencias externas para un rendimiento óptimo.
+* **Google Fonts**: Tipografía 'Inter' para mejorar la legibilidad.
 
-La aplicación viola principios clave como:
-- Claridad  
-- Consistencia  
-- Feedback adecuado  
-- Control del usuario  
-- Prevención de errores  
+## 🔧 Instalación y Uso
 
----
+1. Clona este repositorio:
+```bash
+git clone https://github.com/tu-usuario/legacy-crm.git
 
-## 🧩 Tecnologías utilizadas
+```
 
-- HTML5  
-- CSS3  
-- JavaScript (Vanilla)  
-- Sin frameworks  
-- Sin backend (simulación local)
 
----
+2. Navega a la carpeta del proyecto e inicia el archivo principal:
+```bash
+cd legacy-crm
+open index.html
 
-## 🚀 Cómo ejecutar la aplicación
+```
 
-1. Descargar o copiar el archivo `index.html`  
-2. Abrirlo directamente en cualquier navegador moderno  
-3. No se requiere servidor ni instalación adicional  
 
----
 
-## 🧭 Módulos del CRM
+## 📝 Notas de Versión (v1.2)
 
-### Dashboard
-- Alertas ambiguas  
-- Información poco clara  
+En esta actualización se resolvieron problemas críticos de usabilidad:
 
-### Clientes
-- Formularios extensos y confusos  
-- Validación tardía  
-- Botón de guardado escondido  
+* **Corrección de Input**: Se eliminó el bloqueo de eventos en el formulario que impedía la interacción con los checkboxes.
+* **Mejora UI**: Se eliminaron elementos de interfaz obsoletos (botones flotantes sin funcionalidad) para reducir la carga cognitiva.
+* **Validación**: Implementación de lógica que asegura la aceptación de términos de datos antes de permitir el registro.
 
-### Oportunidades
-- Pipeline poco claro  
-- Acciones ambiguas  
+## 🤝 Contribución
 
-### Configuración
-- Opciones peligrosas  
-- Cambios irreversibles  
+Si deseas contribuir al núcleo del proyecto:
 
-### Reportes
-- Sin filtros claros  
-- Tiempos de carga largos  
+1. Haz un Fork del proyecto.
+2. Crea una rama para tu mejora (`git checkout -b feature/MejoraIncreible`).
+3. Haz un commit de tus cambios (`git commit -m 'Add: Nueva funcionalidad'`).
+4. Haz un Push a la rama (`git push origin feature/MejoraIncreible`).
+5. Abre un Pull Request.
 
----
+s
 
-## ❌ Features diseñados para generar abandono
-
-- Formularios largos  
-- Validaciones al final  
-- Mensajes de error genéricos  
-- Captchas cambiantes  
-- Cierre de sesión automático excesivo  
-- Modales intrusivos  
-- Falta de feedback claro  
-
----
-
-## 📉 Indicador de fricción (didáctico)
-
-La aplicación incluye un **medidor de fricción** que aumenta cuando el usuario enfrenta problemas de usabilidad.  
-Cuando la fricción supera cierto umbral, se simula **abandono del usuario**.
-
----
-
-## 🎭 Dinámica de juego de rol
-
-### Roles
-
-- **Cliente / Product Owner**  
-- **Desarrollador / Equipo UX**
-
----
-
-## 📝 Actividad obligatoria
-
-### Parte 1: Análisis
-- Identificar al menos 5 problemas de usabilidad  
-
-### Parte 2: Propuesta
-- Proponer 3 mejoras justificadas desde el DCU  
-
-### Parte 3: Implementación
-- Implementar las mejoras en el código  
-
----
-
-## 📚 Relación con Diseño Centrado en el Usuario
-
-Este caso permite aplicar:
-- Investigación del contexto  
-- Definición de problemas  
-- Ideación  
-- Prototipado  
-- Evaluación  
-- Iteración  
-
----
-
-## ⚠️ Nota final
-
-Esta aplicación **no representa buenas prácticas**.  
-Su valor académico está en **todo lo que hace mal**, para aprender a hacerlo bien.
