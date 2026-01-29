@@ -3,80 +3,54 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LegacyCRM — Panel de Gestión</title>
+  <title>LegacyCRM — Panel Accesible</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<header>
+<header role="banner">
   <div class="topbar">
-    <div class="brand">LegacyCRM <small>v1.0 (UX Mejorada)</small></div>
-    <input id="globalSearch" type="search" placeholder="Buscar clientes o reportes..." />
-    <button class="pill" id="btnSync">Sincronizar</button>
-    <button class="pill ok" id="btnHelp">Ayuda</button>
-    <button class="pill danger" id="btnLogout">Salir</button>
+    <div class="brand">LegacyCRM <small>v1.2 (Accesible)</small></div>
+    <div class="search-wrap" role="search">
+      <input id="globalSearch" type="search" placeholder="Buscar clientes..." aria-label="Buscar" />
+    </div>
+    <nav class="header-actions">
+      <button class="pill" id="btnSync">Sincronizar</button>
+      <button class="pill ok" id="btnHelp">Ayuda</button>
+      <button class="pill danger" id="btnLogout">Salir</button>
+    </nav>
   </div>
 </header>
 
 <div class="wrap">
-  <aside>
+  <aside role="navigation">
     <nav class="menu" id="menu">
-      <h3>Navegación</h3>
-      <a href="#dashboard" data-route="dashboard" class="active">
-        <strong>Dashboard</strong>
-        <small>Resumen de actividad</small>
-      </a>
-      <a href="#clientes" data-route="clientes">
-        <strong>Clientes</strong>
-        <small>Gestión y registro</small>
-      </a>
-      <a href="#oportunidades" data-route="oportunidades">
-        <strong>Oportunidades</strong>
-        <small>Pipeline de ventas</small>
-      </a>
-      <a href="#config" data-route="config">
-        <strong>Configuración</strong>
-        <small>Ajustes del sistema</small>
-      </a>
-      <a href="#reportes" data-route="reportes">
-        <strong>Reportes</strong>
-        <small>Análisis de datos</small>
-      </a>
+      <h3>Menú Principal</h3>
+      <a href="#dashboard" data-route="dashboard" class="active"><strong>Dashboard</strong><small>Métricas</small></a>
+      <a href="#clientes" data-route="clientes"><strong>Clientes</strong><small>Gestión</small></a>
+      <a href="#oportunidades" data-route="oportunidades"><strong>Ventas</strong><small>Pipeline</small></a>
+      <a href="#config" data-route="config"><strong>Ajustes</strong><small>Cuenta</small></a>
     </nav>
-
-    <div class="friction">
-      <div class="txt" id="frictionTxt">Estado del Sistema: Óptimo</div>
-      <div class="meter"><i id="frictionBar" style="width: 5%"></i></div>
+    <div class="friction-panel">
+      <div class="txt">Estado: <strong>Estable</strong></div>
+      <div class="meter"><i style="width: 5%"></i></div>
     </div>
   </aside>
 
-  <main>
+  <main id="main-content">
     <section id="view-dashboard" class="view">
-      <div class="grid">
-        <div class="card">
-          <div class="hd">
-            <h2>Actividad Reciente</h2>
-            <div class="meta">Actualizado ahora</div>
-          </div>
-          <div class="bd">
-            <table>
-              <thead>
-                <tr>
-                  <th>Evento</th><th>Usuario</th><th>Estado</th><th>Notas</th>
-                </tr>
-              </thead>
-              <tbody id="activityTbody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="hd"><h2>Alertas</h2></div>
-          <div class="bd" id="alertsBox">
-            <div class="tag ok">SISTEMA ONLINE</div>
-            <p class="note" style="margin-top:1rem">No hay incidencias críticas reportadas.</p>
-          </div>
+      <div class="card">
+        <div class="hd"><h2>Actividad Reciente</h2></div>
+        <div class="bd">
+          <table>
+            <thead>
+              <tr><th>Evento</th><th>Usuario</th><th>Estado</th><th>Notas</th></tr>
+            </thead>
+            <tbody id="activityTbody"></tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -85,84 +59,65 @@
       <div class="card">
         <div class="hd"><h2>Registrar Nuevo Cliente</h2></div>
         <div class="bd">
-          <div class="form" id="clientForm">
+          <form class="form" id="clientForm">
             <div class="field">
-              <label>Nombre legal completo</label>
-              <input id="c_name" placeholder="Ej: Juan Pérez S.A." />
+              <label for="c_name">Nombre legal completo *</label>
+              <input id="c_name" type="text" placeholder="Ej: Tech S.A." required />
             </div>
             <div class="field">
-              <label>ID Fiscal (RUC/NIT)</label>
-              <input id="c_tax" placeholder="Solo números" />
+              <label for="c_tax">ID Fiscal (RUC/NIT) *</label>
+              <input id="c_tax" type="text" placeholder="Solo números" required />
             </div>
             <div class="field">
-              <label>Correo corporativo</label>
-              <input id="c_email" type="email" placeholder="usuario@empresa.com" />
+              <label for="c_email">Correo corporativo *</label>
+              <input id="c_email" type="email" placeholder="nombre@empresa.com" required />
             </div>
             <div class="field">
-              <label>Teléfono (E.164)</label>
-              <input id="c_phone" placeholder="+593..." />
+              <label for="c_phone">Teléfono</label>
+              <input id="c_phone" type="tel" placeholder="+593..." />
             </div>
             <div class="field">
-              <label>Industria</label>
+              <label for="c_industry">Industria</label>
               <select id="c_industry">
                 <option value="">Seleccione...</option>
                 <option value="tech">Tecnología</option>
                 <option value="fin">Finanzas</option>
-                <option value="edu">Educación</option>
               </select>
             </div>
             <div class="field">
-              <label>Segmento</label>
+              <label for="c_type">Segmento</label>
               <select id="c_type">
                 <option value="">Seleccione...</option>
                 <option value="vip">VIP</option>
                 <option value="std">Estándar</option>
               </select>
             </div>
-            <div class="field" style="grid-column: span 2;">
-              <label>Dirección Completa</label>
-              <textarea id="c_address" placeholder="Calle, ciudad y referencias..."></textarea>
+            <div class="field full-width">
+              <label for="c_address">Dirección completa</label>
+              <textarea id="c_address" rows="2"></textarea>
             </div>
-            <div class="field" style="grid-column: span 2; border:none; background:#f8fafc; padding:1rem;">
-              <label style="display:flex; align-items:center; gap:10px;">
-                <input id="c_consent" type="checkbox" style="width:auto;" />
-                Acepto los términos de tratamiento de datos
+            
+            <div class="field full-width consent-box">
+              <label class="checkbox-container">
+                <input id="c_consent" type="checkbox" required />
+                <span class="checkbox-label">Acepto los términos de tratamiento de datos *</span>
               </label>
             </div>
-          </div>
-          <div class="actions">
-            <button id="btnCancelClient" class="danger">Limpiar campos</button>
-            <button id="btnSubmitClient" class="primary">Registrar Cliente</button>
+          </form>
+
+          <div class="form-actions">
+            <button id="btnCancelClient" class="btn btn-danger" type="button">Limpiar campos</button>
+            <button id="btnSubmitClient" class="btn btn-primary" type="button">Registrar Cliente</button>
           </div>
         </div>
       </div>
     </section>
-
-    <section id="view-oportunidades" class="view" style="display:none">
-      <div class="card"><div class="bd"><h2>Módulo de Oportunidades</h2><p>Contenido en desarrollo.</p></div></div>
-    </section>
-    <section id="view-config" class="view" style="display:none">
-      <div class="card"><div class="bd"><h2>Configuración</h2><p>Ajustes de cuenta aquí.</p></div></div>
-    </section>
-    <section id="view-reportes" class="view" style="display:none">
-      <div class="card"><div class="bd"><h2>Centro de Reportes</h2><p>Generación de analíticas.</p></div></div>
-    </section>
-
-    <button class="hidden-save" id="btnHiddenSave" title="Guardado Rápido">💾</button>
   </main>
 </div>
 
-<div class="toast" id="toast">
-  <strong id="toastTitle">Aviso</strong>
-  <p id="toastMsg"></p>
-</div>
-
-<div class="modal-backdrop" id="modalBackdrop">
-  <div class="modal">
-    <div class="hd"><h3>Feedback del Usuario</h3><button id="modalX">×</button></div>
-    <div class="bd"><p>¿Cómo fue tu experiencia hoy?</p><textarea id="m_comment" placeholder="Tu opinión es valiosa..."></textarea></div>
-    <div class="ft"><button id="btnModalSubmit" class="primary">Enviar</button></div>
-  </div>
+<div id="toast" class="toast">
+  <strong id="toastTitle"></strong>
+  <span id="toastMsg"></span>
 </div>
 
 <script src="script.js"></script>
